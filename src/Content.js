@@ -1,29 +1,8 @@
-import React,{ Component} from 'react';
-import './Utstilling.css';
-
-class Utstilling extends Component {
+import React, { Component } from 'react';
+class Content extends Component{
     render(){
         return(
             <div class="wrapper">
-                <div class="nav">
-                    <ul>
-                        <li>
-                            <a href="#">Display1</a>
-                        </li>
-                        <li>
-                            <a href="#">Display2</a>
-                        </li>
-                        <li>
-                            <a href="#">Display3</a>
-                        </li>
-                        <li>
-                            <a href="#">Display4</a>
-                        </li>
-                        <li>
-                            <a href="#">About</a>
-                        </li>
-                    </ul>
-                </div>
                 <div class="main">
                     <div class="figure">
                         <svg class="cloud" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 48 48">
@@ -94,30 +73,9 @@ class Utstilling extends Component {
                         by land. This development has, in its time, reacted on the extension of industry; and in proportion as industry, commerce,
                         navigation, railways extended, in the same proportion the bourgeoisie developed, increased its capital, and pushed
                         into the background every class handed down from the Middle Ages.
-                    </p>
-                </div>
-                <div class="sidebar">
-                    <ul>
-                        <ul> Category1
-                            <li>Option1</li>
-                            <li>Option2</li>
-                            <li>Option3</li>
-                        </ul>
-                        <ul> Category2
-                            <li>Option1</li>
-                            <li>Option2</li>
-                            <li>Option3</li>
-                        </ul>
-                        <ul> Category3
-                            <li>Option1</li>
-                            <li>Option2</li>
-                            <li>Option3</li>
-                        </ul>
-                    </ul>
+                        </p>
                 </div>
             </div>
         );
     }
 }
-
-export default Utstilling;
