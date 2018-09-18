@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import './Main.css';
+import Content from './Content.js';
+import View from './View.js';
+import Sidebar from './Sidebar.js';
 
 class Main extends Component{
     render(){
         return(
-            <div class="wrapper">
-                <div class="nav">
+            <div className="wrapper">
+                <div className="nav">
                     <ul>
                         <li>
                             <a href="#">Display1</a>
@@ -23,6 +27,9 @@ class Main extends Component{
                         </li>
                     </ul>
                 </div>
+                <Content/>
+                <View />
+                <Sidebar />
             </div>
         );
     }

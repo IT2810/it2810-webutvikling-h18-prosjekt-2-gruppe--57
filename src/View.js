@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
+import './View.css';
 
 class View extends Component {
     render(){
         return(
-            <div class="wrapper">
+            <div className="wrapper">
                 
             </div>
         )

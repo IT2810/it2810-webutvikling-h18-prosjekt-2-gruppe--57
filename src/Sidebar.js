@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
+import './Sidebar.css';
 
 class Sidebar extends Component{
     render(){
         return(
-            <div class="wrapper">
-                <div class="sidebar">
+            <div className="wrapper">
+                <div className="sidebar">
                     <ul>
                         <ul> Category1
                             <li>Option1</li>

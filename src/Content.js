@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import './Content.css';
 class Content extends Component{
     render(){
         return(
-            <div class="wrapper">
-                <div class="main">
-                    <div class="figure">
+            <div className="wrapper">
+                <div className="main">
+                    <div className="figure">
                         <svg class="cloud" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 48 48">
                             <path d="M0 0h48v48h-48z" fill="none" />
                             <path d="M38.71 20.07c-1.36-6.88-7.43-12.07-14.71-12.07-5.78 0-10.79 3.28-13.3 8.07-6.01.65-10.7 5.74-10.7 11.93 0 6.63 5.37 12 12 12h26c5.52 0 10-4.48 10-10 0-5.28-4.11-9.56-9.29-9.93zm-.71 15.93h-26c-4.42 0-8-3.58-8-8s3.58-8 8-8h1.42c1.31-4.61 5.54-8 10.58-8 6.08 0 11 4.92 11 11v1h3c3.31 0 6 2.69 6 6s-2.69 6-6 6z"
@@ -44,7 +45,7 @@ class Content extends Component{
                         </svg>
                     </div>
                 </div>
-                <div class="text">
+                <div className="text">
                     <p id="information">
                         Freeman and slave, patrician and plebeian, lord and serf, guild-master and journeyman, in a word, oppressor and oppressed,
                         stood in constant opposition to one another, carried on an uninterrupted, now hidden, now open fight, a fight that

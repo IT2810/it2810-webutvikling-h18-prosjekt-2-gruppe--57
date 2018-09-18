@@ -8,6 +8,30 @@
 // To learn more about the benefits of this model, read https://goo.gl/KwvDNy.
 // This link also includes instructions on opting out of this behavior.
 
+/* const PRECACHE = 'precache';
+const RUNTIME = 'runtime';
+const PRECACHE_URLS = [
+    'index.html',
+    'index.js',
+    'Main.js',
+    'Content.js',
+    'View.js',
+    'Sidebar.js',
+    'Main.css',
+    'View.css',
+    'Content.css',
+    'View.css',
+    'Sidebar.css'
+];
+
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(PRECACHE)
+    .then(cache => cache.addAll(PRECACHE_URLS))
+    .then(self.skipWaiting())
+  );
+}); */
+
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
     // [::1] is the IPv6 localhost address.

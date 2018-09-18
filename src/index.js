@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 //import App from './App';
-import Utstilling from './Utstilling';
+import Main from './Main.js';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<Utstilling />, document.getElementById('root'));
+ReactDOM.render(<Main />, document.getElementById('root'));
 registerServiceWorker();
