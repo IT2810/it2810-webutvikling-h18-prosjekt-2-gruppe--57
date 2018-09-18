@@ -3,6 +3,7 @@ import './Main.css';
 import Content from './Content.js';
 import View from './View.js';
 import Sidebar from './Sidebar.js';
+import Music from "./music";
 
 class Main extends Component{
     render(){
@@ -29,6 +30,7 @@ class Main extends Component{
                 </div>
                 <Content/>
                 <View />
+                <Music/>
                 <Sidebar />
             </div>
         );
