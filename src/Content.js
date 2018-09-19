@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Content.css';
+import jazz from "./lib/music/jazz.mp3"
 
 class Content extends Component{
     render(){
@@ -180,6 +181,9 @@ class Content extends Component{
                             into the background every class handed down from the Middle Ages.
                         </div>
                     </div>
+                </div>
+                <div className="musicElm">
+                    <audio src={jazz} controls></audio>
                 </div>
             </div>
         );
