@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './Content.css';
 import PoeATree from './PoeATree';
 import View from './View';
+import jazz from "./lib/music/jazz.mp3"
+
 
 class Content extends Component{
     constructor(props) {
@@ -120,6 +122,9 @@ class Content extends Component{
                     <div className="poeATreeContent">
                         <PoeATree filename="revolution.txt" />
                     </div>
+                </div>
+                <div className="musicElm">
+                    <audio src={jazz} controls></audio>
                 </div>
             </div>
         );

@@ -5,7 +5,7 @@ class Music extends Component {
     render() {
         return(
             <div>
-                <audio src="../lib/music/jazz.mp3" type="mp3" controls> </audio>
+                <audio src="lib/music/jazz.mp3" type="mp3" controls> </audio>
             </div>
         );
     }
