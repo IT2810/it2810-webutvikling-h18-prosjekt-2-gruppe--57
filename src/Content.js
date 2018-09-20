@@ -3,6 +3,8 @@ import './Content.css';
 import PoeATree from './PoeATree';
 import View from './View';
 import jazz from "./lib/music/jazz.mp3"
+import rock from './lib/music/rock.mp3'
+import electronic from './lib/music/electronic.mp3'
 
 
 class Content extends Component{
@@ -39,7 +41,7 @@ class Content extends Component{
                                             type="radio"
                                             onChange={this.handleChange}
                                         />
-                                        heavy metal
+                                        smooth jazz
                                         <br />
                                         <input
                                             name="music"
@@ -47,7 +49,7 @@ class Content extends Component{
                                             type="radio"
                                             onChange={this.handleChange}
                                         />
-                                        smooth jazz
+                                        electronica
                                         <br />
                                         <input
                                             name="music"
@@ -55,7 +57,7 @@ class Content extends Component{
                                             type="radio"
                                             onChange={this.handleChange}
                                         />
-                                        classical
+                                        rock
                                     </label>
                                 </form>
                                 <br />
@@ -124,7 +126,8 @@ class Content extends Component{
                     </div>
                 </div>
                 <div className="musicElm">
-                    <audio src={jazz} controls></audio>
+                    <audio src={jazz}></audio>
+                    <p>music from bensound.com</p>
                 </div>
             </div>
         );
