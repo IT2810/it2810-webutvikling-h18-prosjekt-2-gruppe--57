@@ -2,7 +2,8 @@
   "name": "utstilling",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://it2810-57.idi.ntnu.no/prosjekt2/build/",
+  "main": "index.js",
+  "homepage": "http://it2810-57.idi.ntnu.no/prosjekt2/",
   "dependencies": {
     "jquery": "^3.3.1",
     "react": "^16.5.1",
