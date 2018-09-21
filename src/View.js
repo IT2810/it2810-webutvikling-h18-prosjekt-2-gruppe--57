@@ -4,7 +4,7 @@ import './View.css';
 class View extends Component {
     constructor(props){
         super(props);
-        this.state = {filename: ''};
+        this.state = {art: '',music: ''};
         this.load = this.load.bind(this);
     }
 

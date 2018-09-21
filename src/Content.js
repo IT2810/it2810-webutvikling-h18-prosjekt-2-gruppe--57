@@ -22,12 +22,13 @@ class Content extends Component{
         else if (name === "art") this.setState({ optionArt: target.value });
     }
 
+
     render(){
         return(
             <div>
                 <div className="contentWrapper">
                     <div className="viewContent">
-                        <View filename="car.svg" />
+                        <View art={this.state.optionArt} music={this.state.optionMusic} />
                     </div>
                     <div className="sidebarContent">
                         <div className="wrapper">
@@ -65,7 +66,7 @@ class Content extends Component{
                                     <label> Select preferred poetry:
                                         <br />
                                         <input
-                                            name="poetry"
+                                            name="text"
                                             value="romantic"
                                             type="radio"
                                             onChange={this.handleChange}
@@ -73,7 +74,7 @@ class Content extends Component{
                                         romantic
                                         <br />
                                         <input
-                                            name="poetry"
+                                            name="text"
                                             value="comedy"
                                             type="radio"
                                             onChange={this.handleChange}
@@ -81,7 +82,7 @@ class Content extends Component{
                                         comedy
                                         <br />
                                         <input
-                                            name="poetry"
+                                            name="text"
                                             value="revolutionary"
                                             type="radio"
                                             onChange={this.handleChange}
@@ -94,7 +95,7 @@ class Content extends Component{
                                     <label> Select preferred art:
                                         <br />
                                         <input
-                                            name="art"
+                                            name="figures"
                                             value="the wonder that is the car"
                                             type="radio"
                                             onChange={this.handleChange}
@@ -102,7 +103,7 @@ class Content extends Component{
                                         The wonder that is the car
                                         <br />
                                         <input
-                                            name="art"
+                                            name="figures"
                                             value="something something we don't understand but seems important"
                                             type="radio"
                                             onChange={this.handleChange}
@@ -110,7 +111,7 @@ class Content extends Component{
                                         something we don't understand but seems important
                                         <br />
                                         <input
-                                            name="art"
+                                            name="figures"
                                             value="this we really dont't understand"
                                             type="radio"
                                             onChange={this.handleChange}
@@ -122,7 +123,7 @@ class Content extends Component{
                         </div>
                     </div>
                     <div className="poeATreeContent">
-                        <PoeATree filename="revolution.txt" />
+                        <PoeATree text={this.state.optionPoetry}/>
                     </div>
                 </div>
                 <div className="musicElm">
