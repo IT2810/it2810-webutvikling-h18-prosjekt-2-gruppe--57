@@ -16,7 +16,9 @@ class View extends Component {
     render() {
         return (
             <div className="figure">
-                <img src={images} alt="sadas"></img>
+                <object src={images}>Hallo</object>
+
+                {/*<img src={images} alt="sadas"></img>*/}
                 <br/>
             </div>
         )
