@@ -1,6 +1,6 @@
 .contentWrapper{
     display:grid;
-    grid-template-columns: auto 30% 20%;
+    grid-template-columns: 30% 30% 20%;
     grid-template-rows:auto;
     grid-template-areas:
             "tittttle tittttle tittttle"
