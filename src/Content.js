@@ -10,8 +10,15 @@ import electronic from './lib/music/electronic.mp3'
 class Content extends Component{
     constructor(props) {
         super(props);
-        this.state = { optionMusic: '', optionPoetry: '', optionArt: '' };
+        this.state = { tab: this.props.tabIndex ,optionMusic: '', optionPoetry: '', optionArt: '' };
         this.handleChange = this.handleChange.bind(this);
+    }
+
+
+    //reRendered
+    componentWillReceiveProps(nextProps) {
+        this.setState({ tab: nextProps.tabIndex ,optionMusic: '', optionPoetry: '', optionArt: '' });
+        //get from cached file.
     }
 
     handleChange(event) {
@@ -27,6 +34,7 @@ class Content extends Component{
         return(
             <div>
                 <div className="contentWrapper">
+                    <h1 className="id">this is the current page: {this.state.tab}</h1>
                     <div className="viewContent">
                         <View art={this.state.optionArt} music={this.state.optionMusic} />
                     </div>
