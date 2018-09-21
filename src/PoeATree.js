@@ -11,9 +11,9 @@ class PoeATree extends Component {
     componentDidMount() {
         let filename = this.props.text;
         let file = sessionStorage.getItem(filename);
-        this.setState({
+        /*this.setState({
             content: file.content
-        });
+        });*/
     }
 
     
