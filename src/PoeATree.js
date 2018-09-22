@@ -18,14 +18,14 @@ class PoeATree extends Component {
                 .then(cont => this.store(filename+"_2",cont));
         } else {
             this.setState({
-                content: file,
+                content: file.content,
                 isLoaded: true
             });
         }
     }
 
     store(name, cont){
-        sessionStorage.setItem(name,JSON.stringify(cont));
+        sessionStorage.setItem(name,cont);
         this.setState({
             content: cont.content,
             isLoaded:true
