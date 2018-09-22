@@ -3,8 +3,7 @@ import $ from 'jquery';
 import './Content.css';
 import PoeATree from './PoeATree';
 import View from './View';
-import Music from './music';
-
+import Music from './Music';
 let SELECTION = 'selection.json';
 
 class Content extends Component {
