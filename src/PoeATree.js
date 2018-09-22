@@ -12,7 +12,7 @@ class PoeATree extends Component {
         let filename = this.state.name;
         let file = sessionStorage.getItem(filename);
         if (!file) {
-            fetch('/lib/text/' + filename)
+            fetch('lib/text/' + filename)
                 .then(response => response.json())  
                 .then(cont => this.store(filename,cont));
         } else {

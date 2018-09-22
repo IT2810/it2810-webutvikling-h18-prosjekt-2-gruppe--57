@@ -4,7 +4,7 @@ import './music.css'
 class Music extends Component {
     constructor(props){
         super(props);
-        this.state = {name:'/lib/music/'+this.props.music}
+        this.state = {name:'lib/music/'+this.props.music}
     }
     
     render() {
