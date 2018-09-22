@@ -51,7 +51,7 @@ class View extends Component {
         else{
             return (
                 <div className="figure">
-                    <div dangerouslySetInnerHTML={{ __html: this.state.content}} />;
+                    <div dangerouslySetInnerHTML={{ __html: this.state.content}}/>
                 </div>
             );
         }

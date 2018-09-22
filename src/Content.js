@@ -4,6 +4,7 @@ import './Content.css';
 import PoeATree from './PoeATree';
 import View from './View';
 import Music from './Music';
+
 let SELECTION = 'selection.json';
 
 class Content extends Component {
@@ -20,7 +21,7 @@ class Content extends Component {
 
     //reRendered
     componentWillReceiveProps(nextProps) {
-        this.setState({tab: nextProps.tabIndex, optionMusic: '', optionPoetry: '', optionArt: ''});
+        this.setState({tab: nextProps.tabIndex});
         if (this.state.tab !== nextProps.tabIndex) {
             this.setSelection(nextProps.tabIndex);
             /*console.log("You changed the tab.... Brutal :O ");*/
@@ -43,12 +44,12 @@ class Content extends Component {
         const name = target.name;
         const index = this.traverse($(target).index());
         this.storeSelection(this.state.tab, name, index);
-             if (name === "1") this.setState({optionMusic:  ""+this.state.tab+"_"+target.value});
-        else if (name === "2") this.setState({optionPoetry: ""+this.state.tab+"_"+target.value});
-        else if (name === "3") this.setState({optionArt:    ""+this.state.tab+"_"+target.value});
+        if (name === "1") this.setState({optionMusic: "" + this.state.tab + "_" + target.value});
+        else if (name === "2") this.setState({optionPoetry: "" + this.state.tab + "_" + target.value});
+        else if (name === "3") this.setState({optionArt: "" + this.state.tab + "_" + target.value});
     }
 
-    makeFile(){
+    makeFile() {
         let file = JSON.parse(sessionStorage.getItem(SELECTION));
         if (!file) {
             let selection = ({
@@ -112,15 +113,23 @@ class Content extends Component {
 
     //set previous selection for current tab
     setSelection(selectedTab) {
+        var self = this;
         console.log("The state i remember: " + selectedTab);
         let file = JSON.parse(sessionStorage.getItem(SELECTION));
         /*console.log(file[selectedTab]);*/
-        $.each(file[selectedTab], function  (value, index) {
-            let valueInt = parseInt(value)-1;
-            let indexInt = parseInt(index)-1;
-            /*console.log("value: " + value + " idx: " + index);*/
+        $.each(file[selectedTab], function (value, index) {
+            let valueInt = parseInt(value) - 1;
+            let indexInt = parseInt(index) - 1;
+            console.log("value: " + value + " idx: " + index);
             document.getElementsByTagName('form')[valueInt][indexInt].checked = true;
-            document.getElementsByTagName('form')[valueInt][indexInt].click();
+            if (value === "1") {
+                self.setState({optionMusic: "" + self.state.tab + "_" + index});
+            } else if (value === "2") {
+                self.setState({optionPoetry: "" + self.state.tab + "_" + index});
+            } else if (value === "3") {
+                self.setState({optionArt: "" + self.state.tab + "_" + index});
+            }
+            console.log(self.state)
         })
     };
 
@@ -129,8 +138,8 @@ class Content extends Component {
             <div>
                 <div className="contentWrapper">
                     <div className="viewContent">
-                    <View art={this.state.optionArt}/>
-                  </div>
+                        <View art={this.state.optionArt}/>
+                    </div>
                     <div className="sidebarContent">
                         <div className="wrapper">
                             <div className="sidebar">
