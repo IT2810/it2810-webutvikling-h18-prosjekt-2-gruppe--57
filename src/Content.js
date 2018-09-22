@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import $ from 'jquery';
 import './Content.css';
-import PoeATree from './PoeATree'; 
+import PoeATree from './PoeATree';
 import View from './View';
 import Music from './';
 import jazz from "./lib/music/jazz/jazztrio.mp3"
@@ -9,11 +9,11 @@ import rock from './lib/music/rock/rock.mp3'
 import electronic from './lib/music/electronic/electronic.mp3'
 
 let SELECTION = 'selection.json';
-let URL = '';
-class Content extends Component{
+
+class Content extends Component {
     constructor(props) {
         super(props);
-        this.state = { tab: this.props.tabIndex ,optionMusic: '', optionPoetry: '', optionArt: '' };
+        this.state = {tab: this.props.tabIndex, optionMusic: '', optionPoetry: '', optionArt: ''};
         this.handleChange = this.handleChange.bind(this);
         this.storeSelection = this.storeSelection.bind(this);
         this.getSelection = this.getSelection.bind(this);
@@ -23,60 +23,61 @@ class Content extends Component{
     //reRendered
     componentWillReceiveProps(nextProps) {
         //let {music, poetry, art} = getSelection();
-        this.setState({ tab: nextProps.tabIndex ,optionMusic: '', optionPoetry: '', optionArt: '' });
+        this.setState({tab: nextProps.tabIndex, optionMusic: '', optionPoetry: '', optionArt: ''});
     }
 
     handleChange(event) {
         const target = event.target;
         const name = target.name;
         const index = $(target).index();
-        this.storeSelection(this.state.tab,name,index);
-        this.getFile(target.value);
-        if (name === "category1") this.setState({ optionMusic: target.value });
-        else if (name === "category2") this.setState({ optionPoetry: target.value });
-        else if (name === "category3") this.setState({ optionArt: target.value });
+        this.storeSelection(this.state.tab, name, index);
+        if (name === "category1") this.setState({optionMusic: target.value});
+        else if (name === "category2") this.setState({optionPoetry: target.value});
+        else if (name === "category3") this.setState({optionArt: target.value});
+
     }
 
     //store selection for current tab
-    storeSelection(selectedTab,selectedCategory,index){
+    storeSelection(selectedTab, selectedCategory, index) {
         let selection = '';
-        let file = sessionStorage.getItem(SELECTION);
-        if(!file){
-            selection = JSON.stringify({
-                "0":{
-                    "category1" : 1,
-                    "category2" : 1,
-                    "category3" : 1,
+        let file = JSON.parse(sessionStorage.getItem(SELECTION));
+        if (!file) {
+            selection = ({
+                "0": {
+                    "category1": 1,
+                    "category2": 1,
+                    "category3": 1,
                 },
-                "1":{
-                    "category1" : 1,
-                    "category2" : 1,
-                    "category3" : 1,
+                "1": {
+                    "category1": 1,
+                    "category2": 1,
+                    "category3": 1,
                 },
-                "2":{
-                    "category1" : 1,
-                    "category2" : 1,
-                    "category3" : 1,
+                "2": {
+                    "category1": 1,
+                    "category2": 1,
+                    "category3": 1,
                 },
-                "3":{
-                    "category1" : 1,
-                    "category2" : 1,
-                    "category3" : 1,
-            }});
-        }else selection = file;
-        console.log(selection); 
-        selection[selectedTab][selectedCategory] = index; 
-        sessionStorage.setItem(SELECTION,selection);
+                "3": {
+                    "category1": 1,
+                    "category2": 1,
+                    "category3": 1,
+                }
+            });
+        } else selection = file;
+        console.log(selection);
+        selection[selectedTab][selectedCategory] = index;
+        sessionStorage.setItem(SELECTION, JSON.stringify(selection));
     }
 
     //get previous selection for current tab 
-    getSelection(selectedTab){
-        let file = sessionStorage.getItem(SELECTION);
-        
-    }
+    getSelection(selectedTab) {
+        let file = JSON.parse(sessionStorage.getItem(SELECTION));
 
-    render(){
-        return(
+    };
+
+    render() {
+        return (
             <div>
                 <div className="contentWrapper">
                     <h1 className="id">this is the current page: {this.state.tab}</h1>
@@ -88,7 +89,7 @@ class Content extends Component{
                             <div className="sidebar">
                                 <form>
                                     <label> Select preferred music:
-                                        <br />
+                                        <br/>
                                         <input
                                             name="category1"
                                             value="heavy metal"
@@ -96,7 +97,7 @@ class Content extends Component{
                                             onChange={this.handleChange}
                                         />
                                         smooth jazz
-                                        <br />
+                                        <br/>
                                         <input
                                             name="category1"
                                             value="smooth jazz"
@@ -104,7 +105,7 @@ class Content extends Component{
                                             onChange={this.handleChange}
                                         />
                                         electronica
-                                        <br />
+                                        <br/>
                                         <input
                                             name="category1"
                                             value="classical"
@@ -114,10 +115,10 @@ class Content extends Component{
                                         rock
                                     </label>
                                 </form>
-                                <br />
+                                <br/>
                                 <form>
                                     <label> Select preferred poetry:
-                                        <br />
+                                        <br/>
                                         <input
                                             name="category2"
                                             value="romantic"
@@ -125,7 +126,7 @@ class Content extends Component{
                                             onChange={this.handleChange}
                                         />
                                         romantic
-                                        <br />
+                                        <br/>
                                         <input
                                             name="category2"
                                             value="comedy"
@@ -133,7 +134,7 @@ class Content extends Component{
                                             onChange={this.handleChange}
                                         />
                                         comedy
-                                        <br />
+                                        <br/>
                                         <input
                                             name="category2"
                                             value="revolutionary"
@@ -143,10 +144,10 @@ class Content extends Component{
                                         revolutionary
                                     </label>
                                 </form>
-                                <br />
+                                <br/>
                                 <form>
                                     <label> Select preferred art:
-                                        <br />
+                                        <br/>
                                         <input
                                             name="category3"
                                             value="the wonder that is the car"
@@ -154,7 +155,7 @@ class Content extends Component{
                                             onChange={this.handleChange}
                                         />
                                         The wonder that is the car
-                                        <br />
+                                        <br/>
                                         <input
                                             name="category3"
                                             value="something something we don't understand but seems important"
@@ -162,7 +163,7 @@ class Content extends Component{
                                             onChange={this.handleChange}
                                         />
                                         something we don't understand but seems important
-                                        <br />
+                                        <br/>
                                         <input
                                             name="category3"
                                             value="this we really dont't understand"
@@ -187,4 +188,5 @@ class Content extends Component{
         );
     }
 }
+
 export default Content;
