@@ -4,9 +4,6 @@ import './Content.css';
 import PoeATree from './PoeATree';
 import View from './View';
 import Music from './music';
-import jazz from "./lib/music/jazz/jazztrio.mp3"
-import rock from './lib/music/rock/rock.mp3'
-import electronic from './lib/music/electronic/electronic.mp3'
 
 let SELECTION = 'selection.json';
 
@@ -32,7 +29,7 @@ class Content extends Component {
 
     }
 
-    trivers(firstIndex) {
+    traverse(firstIndex) {
         let returnValue = 1;
         if (firstIndex === 3) {
             returnValue = 2
@@ -45,11 +42,11 @@ class Content extends Component {
     handleChange(event) {
         const target = event.target;
         const name = target.name;
-        const index = this.trivers($(target).index());
+        const index = this.traverse($(target).index());
         this.storeSelection(this.state.tab, name, index);
-             if (name === "1") this.setState({optionMusic:  target.value});
-        else if (name === "2") this.setState({optionPoetry: target.value});
-        else if (name === "3") this.setState({optionArt:    target.value});
+             if (name === "1") this.setState({optionMusic:  ""+this.state.tab+"_"+target.value});
+        else if (name === "2") this.setState({optionPoetry: ""+this.state.tab+"_"+target.value});
+        else if (name === "3") this.setState({optionArt:    ""+this.state.tab+"_"+target.value});
     }
 
     makeFile(){
@@ -123,7 +120,8 @@ class Content extends Component {
             let valueInt = parseInt(value)-1;
             let indexInt = parseInt(index)-1;
             /*console.log("value: " + value + " idx: " + index);*/
-            document.getElementsByTagName('form')[valueInt][indexInt].checked = true
+            document.getElementsByTagName('form')[valueInt][indexInt].checked = true;
+            document.getElementsByTagName('form')[valueInt][indexInt].click();
         })
     };
 
@@ -132,10 +130,7 @@ class Content extends Component {
             <div>
                 <div className="contentWrapper">
                     <div className="viewContent">
-                    {/*                         
                     <View art={this.state.optionArt}/>
-                    */}          
-                    <View art="fire.svg" />        
                   </div>
                     <div className="sidebarContent">
                         <div className="wrapper">
@@ -145,7 +140,7 @@ class Content extends Component {
                                         <br/>
                                         <input
                                             name="1"
-                                            value="heavy metal"
+                                            value="1"
                                             type="radio"
                                             onChange={this.handleChange}
                                         />
@@ -153,7 +148,7 @@ class Content extends Component {
                                         <br/>
                                         <input
                                             name="1"
-                                            value="smooth jazz"
+                                            value="2"
                                             type="radio"
                                             onChange={this.handleChange}
                                         />
@@ -161,7 +156,7 @@ class Content extends Component {
                                         <br/>
                                         <input
                                             name="1"
-                                            value="classical"
+                                            value="3"
                                             type="radio"
                                             onChange={this.handleChange}
                                         />
@@ -174,7 +169,7 @@ class Content extends Component {
                                         <br/>
                                         <input
                                             name="2"
-                                            value="romantic"
+                                            value="1"
                                             type="radio"
                                             onChange={this.handleChange}
                                         />
@@ -182,7 +177,7 @@ class Content extends Component {
                                         <br/>
                                         <input
                                             name="2"
-                                            value="comedy"
+                                            value="2"
                                             type="radio"
                                             onChange={this.handleChange}
                                         />
@@ -190,7 +185,7 @@ class Content extends Component {
                                         <br/>
                                         <input
                                             name="2"
-                                            value="revolutionary"
+                                            value="3"
                                             type="radio"
                                             onChange={this.handleChange}
                                         />
@@ -203,7 +198,7 @@ class Content extends Component {
                                         <br/>
                                         <input
                                             name="3"
-                                            value="the wonder that is the car"
+                                            value="1"
                                             type="radio"
                                             onChange={this.handleChange}
                                         />
@@ -211,7 +206,7 @@ class Content extends Component {
                                         <br/>
                                         <input
                                             name="3"
-                                            value="something something we don't understand but seems important"
+                                            value="2"
                                             type="radio"
                                             onChange={this.handleChange}
                                         />
@@ -219,7 +214,7 @@ class Content extends Component {
                                         <br/>
                                         <input
                                             name="3"
-                                            value="this we really dont't understand"
+                                            value="3"
                                             type="radio"
                                             onChange={this.handleChange}
                                         />
@@ -230,7 +225,7 @@ class Content extends Component {
                         </div>
                     </div>
                     <div className="poeATreeContent">
-                        <PoeATree text="frankenstein.json"/>
+                        <PoeATree text={this.state.optionPoetry}/>
                     </div>
                 </div>
                 <div className="musicElm">

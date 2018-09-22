@@ -9,11 +9,13 @@ class View extends Component {
         this.store = this.store.bind(this);
     }
 
-    componentDidMount(){
-        let name = this.state.art;
+
+    componentWillReceiveProps(newProps) {
+        let name = newProps.art;
         let file = sessionStorage.getItem(name);
+        console.log(name);
         if(!file){
-            fetch('lib/images/'+name)
+            fetch('lib/images/'+name+'.svg')
                 .then(response => response.text())
                 .then(cont => this.store(name,cont));
         }else{
