@@ -5,37 +5,32 @@ class PoeATree extends Component {
     constructor(props){
         super(props);
         this.state = {name: this.props.text,content:'', error:false, isLoaded:false};
+        this.store = this.store.bind(this);
     }
     
-    componentWillReceiveProps() {
+    componentDidMount() {
         let filename = this.state.name;
         let file = sessionStorage.getItem(filename);
-        if(!file){
-            fetch('/lib/text/'+filename)
-                .then(response => {
-                    if(response.ok){
-                        response = response.json();
-                        this.setState({
-                            content: result.content,
-                            isLoaded: true
-                        });
-                    }else{
-                        this.setState({
-                            error: true
-                        });
-                    }
-                });
-
-        }else{
+        if (!file) {
+            fetch('/lib/text/' + filename)
+                .then(response => response.json())  
+                .then(cont => this.store(filename,cont));
+        } else {
             this.setState({
-                content: file.json().content,
-                isLoaded:true
+                content: JSON.parse(file).content,
+                isLoaded: true
             });
         }
-        this.forceUpdate();
       
     }
 
+    store(name, cont){
+        sessionStorage.getItem(name,JSON.stringify(cont));
+        this.setState({
+            content: cont.content,
+            isLoaded:true
+        });
+    }
     
     render(){
         if(!this.state.isLoaded){

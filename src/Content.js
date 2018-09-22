@@ -17,7 +17,6 @@ class Content extends Component{
         this.handleChange = this.handleChange.bind(this);
         this.storeSelection = this.storeSelection.bind(this);
         this.getSelection = this.getSelection.bind(this);
-        this.getFile = this.getFile.bind(this);
     }
 
 
@@ -82,11 +81,7 @@ class Content extends Component{
                 <div className="contentWrapper">
                     <h1 className="id">this is the current page: {this.state.tab}</h1>
                     <div className="viewContent">
-<<<<<<< HEAD
                         <View art={this.state.optionArt}/>
-=======
-                        <View initialArt={this.state.art} music={this.state.optionMusic} />
->>>>>>> d9e731e3dd44f101f4a6f0bfa20d95d190f7a68b
                     </div>
                     <div className="sidebarContent">
                         <div className="wrapper">
@@ -181,7 +176,7 @@ class Content extends Component{
                         </div>
                     </div>
                     <div className="poeATreeContent">
-                        <PoeATree text={this.state.optionPoetry}/>
+                        <PoeATree text="frankenstein.json"/>
                     </div>
                 </div>
                 <div className="musicElm">
