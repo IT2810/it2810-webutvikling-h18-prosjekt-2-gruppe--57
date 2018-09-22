@@ -7,21 +7,21 @@ class PoeATree extends Component {
         this.state = {name: this.props.text,content:'', error:false, isLoaded:false};
         this.store = this.store.bind(this);
     }
-    
-    componentDidMount() {
-        let filename = this.state.name;
+
+    componentWillReceiveProps(newProps) {
+        let filename = newProps.text;
         let file = sessionStorage.getItem(filename);
+        console.log(filename);
         if (!file) {
-            fetch('/lib/text/' + filename)
-                .then(response => response.json())  
+            fetch('lib/text/' + filename + ".json")
+                .then(response => response.json())
                 .then(cont => this.store(filename,cont));
         } else {
             this.setState({
-                content: JSON.parse(file).content,
+                content: file,
                 isLoaded: true
             });
         }
-      
     }
 
     store(name, cont){
