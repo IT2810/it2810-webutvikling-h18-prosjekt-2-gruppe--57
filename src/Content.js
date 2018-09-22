@@ -3,6 +3,7 @@ import $ from 'jquery';
 import './Content.css';
 import PoeATree from './PoeATree'; 
 import View from './View';
+import Music from './';
 import jazz from "./lib/music/jazz/jazztrio.mp3"
 import rock from './lib/music/rock/rock.mp3'
 import electronic from './lib/music/electronic/electronic.mp3'
@@ -75,33 +76,13 @@ class Content extends Component{
         
     }
 
-    //checks if file is stored in sessionStorage 
-    //retrieves it if not
-    //needs to run before changing state as children will only read locally
-    getFile(name){
-        let file = sessionStorage.getItem(name);
-        if(!file){
-            fetch(URL + '/' + name)
-                .then(response => {
-                    if(response.ok){
-                        sessionStorage.setItem(name, response);
-                    }
-                    else{
-                        throw new Error('Error, could not fetch data'); 
-                    }
-                    
-                });
-        }
-    }
-
-
     render(){
         return(
             <div>
                 <div className="contentWrapper">
                     <h1 className="id">this is the current page: {this.state.tab}</h1>
                     <div className="viewContent">
-                        <View art={this.state.optionArt} music={this.state.optionMusic} />
+                        <View art={this.state.optionArt}/>
                     </div>
                     <div className="sidebarContent">
                         <div className="wrapper">

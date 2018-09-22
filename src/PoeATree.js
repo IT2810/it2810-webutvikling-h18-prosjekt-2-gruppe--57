@@ -4,28 +4,47 @@ import './PoeATree.css';
 class PoeATree extends Component {
     constructor(props){
         super(props);
-        this.state = {content:[], error:false};
+        this.state = {name: this.props.text,content:'', error:false, isLoaded:false};
     }
     
-    //Loads selected file from sessionStorage
-    //Caching is done by Content
     componentWillReceiveProps() {
-        let filename = this.props.text;
+        let filename = this.state.name;
         let file = sessionStorage.getItem(filename);
         if(!file){
-            this.setState({
-                error:true
-            });
+            fetch('/lib/text/'+filename)
+                .then(response => {
+                    if(response.ok){
+                        response = response.json();
+                        this.setState({
+                            content: result.content,
+                            isLoaded: true
+                        });
+                    }else{
+                        this.setState({
+                            error: true
+                        });
+                    }
+                });
+
         }else{
             this.setState({
-                content: file.content
+                content: file.json().content,
+                isLoaded:true
             });
         }
+        this.forceUpdate();
       
     }
 
     
     render(){
+        if(!this.state.isLoaded){
+            return(
+                <div className="PoeATree">
+                <p>Loading...</p>
+                </div>
+            )
+        }
         if(this.state.error){
             return(
                 <div className="PoeATree">
