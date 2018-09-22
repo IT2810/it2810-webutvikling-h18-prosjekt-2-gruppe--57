@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './View.css';
-import images from "./lib/figures/postmodern/lul.png";
+import images from "./lib/figures/postmodern/fire.svg";
 
 class View extends Component {
     constructor(props){
@@ -13,11 +13,11 @@ class View extends Component {
 
     }
 
+
     render() {
         return (
             <div className="figure">
-                {/*<object src={images}>Hallo</object>*/}
-                <img src={images} alt="sadas"></img>
+                <object data={images} type="image/svg+xml"></object>
                 <br/>
             </div>
         )

@@ -2,7 +2,12 @@
   "name": "utstilling",
   "version": "0.1.0",
   "private": true,
+<<<<<<< HEAD
   "homepage": "http://it2810-69.idi.ntnu.no/prosjekt2",
+=======
+  "main": "index.js",
+  "homepage": "http://it2810-57.idi.ntnu.no/prosjekt2/",
+>>>>>>> bf048f4af360c3d944d906cd8aab8ed28d1134a8
   "dependencies": {
     "jquery": "^3.3.1",
     "react": "^16.5.1",
@@ -14,5 +19,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "svg-inline-loader": "^0.8.0"
   }
 }
