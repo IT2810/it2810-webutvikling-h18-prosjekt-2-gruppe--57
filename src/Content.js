@@ -13,28 +13,41 @@ let SELECTION = 'selection.json';
 class Content extends Component {
     constructor(props) {
         super(props);
-        this.state = {tab: this.props.tabIndex, optionMusic: '', optionPoetry: '', optionArt: ''};
+        this.state = {tab: 0, optionMusic: '', optionPoetry: '', optionArt: ''};
         this.handleChange = this.handleChange.bind(this);
         this.storeSelection = this.storeSelection.bind(this);
-        this.getSelection = this.getSelection.bind(this);
+        this.setSelection = this.setSelection.bind(this);
     }
 
 
     //reRendered
     componentWillReceiveProps(nextProps) {
-        //let {music, poetry, art} = getSelection();
         this.setState({tab: nextProps.tabIndex, optionMusic: '', optionPoetry: '', optionArt: ''});
+        if (this.state.tab !== nextProps.tabIndex) {
+            this.setSelection(nextProps.tabIndex);
+            /*console.log("You changed the tab.... Brutal :O ");*/
+        }
+
+    }
+
+    trivers(firstIndex) {
+        let returnValue = 1;
+        if (firstIndex === 3) {
+            returnValue = 2
+        } else if (firstIndex === 5) {
+            returnValue = 3
+        }
+        return returnValue
     }
 
     handleChange(event) {
         const target = event.target;
         const name = target.name;
-        const index = $(target).index();
+        const index = this.trivers($(target).index());
         this.storeSelection(this.state.tab, name, index);
-        if (name === "category1") this.setState({optionMusic: target.value});
-        else if (name === "category2") this.setState({optionPoetry: target.value});
-        else if (name === "category3") this.setState({optionArt: target.value});
-
+             if (name === "1") this.setState({optionMusic:  target.value});
+        else if (name === "2") this.setState({optionPoetry: target.value});
+        else if (name === "3") this.setState({optionArt:    target.value});
     }
 
     //store selection for current tab
@@ -44,43 +57,49 @@ class Content extends Component {
         if (!file) {
             selection = ({
                 "0": {
-                    "category1": 1,
-                    "category2": 1,
-                    "category3": 1,
+                    "1": 1,
+                    "2": 1,
+                    "3": 1,
                 },
                 "1": {
-                    "category1": 1,
-                    "category2": 1,
-                    "category3": 1,
+                    "1": 1,
+                    "2": 1,
+                    "3": 1,
                 },
                 "2": {
-                    "category1": 1,
-                    "category2": 1,
-                    "category3": 1,
+                    "1": 1,
+                    "2": 1,
+                    "3": 1,
                 },
                 "3": {
-                    "category1": 1,
-                    "category2": 1,
-                    "category3": 1,
+                    "1": 1,
+                    "2": 1,
+                    "3": 1,
                 }
             });
         } else selection = file;
-        console.log(selection);
         selection[selectedTab][selectedCategory] = index;
         sessionStorage.setItem(SELECTION, JSON.stringify(selection));
     }
 
-    //get previous selection for current tab 
-    getSelection(selectedTab) {
-        let file = JSON.parse(sessionStorage.getItem(SELECTION));
 
+    //set previous selection for current tab
+    setSelection(selectedTab) {
+        console.log("The state i remember: " + selectedTab);
+        let file = JSON.parse(sessionStorage.getItem(SELECTION));
+        /*console.log(file[selectedTab]);*/
+        $.each(file[selectedTab], function  (value, index) {
+            let valueInt = parseInt(value)-1;
+            let indexInt = parseInt(index)-1;
+            /*console.log("value: " + value + " idx: " + index);*/
+            document.getElementsByTagName('form')[valueInt][indexInt].checked = true
+        })
     };
 
     render() {
         return (
             <div>
                 <div className="contentWrapper">
-                    <h1 className="id">this is the current page: {this.state.tab}</h1>
                     <div className="viewContent">
                     {/*                         
                     <View art={this.state.optionArt}/>
@@ -94,7 +113,7 @@ class Content extends Component {
                                     <label> Select preferred music:
                                         <br/>
                                         <input
-                                            name="category1"
+                                            name="1"
                                             value="heavy metal"
                                             type="radio"
                                             onChange={this.handleChange}
@@ -102,7 +121,7 @@ class Content extends Component {
                                         smooth jazz
                                         <br/>
                                         <input
-                                            name="category1"
+                                            name="1"
                                             value="smooth jazz"
                                             type="radio"
                                             onChange={this.handleChange}
@@ -110,7 +129,7 @@ class Content extends Component {
                                         electronica
                                         <br/>
                                         <input
-                                            name="category1"
+                                            name="1"
                                             value="classical"
                                             type="radio"
                                             onChange={this.handleChange}
@@ -123,7 +142,7 @@ class Content extends Component {
                                     <label> Select preferred poetry:
                                         <br/>
                                         <input
-                                            name="category2"
+                                            name="2"
                                             value="romantic"
                                             type="radio"
                                             onChange={this.handleChange}
@@ -131,7 +150,7 @@ class Content extends Component {
                                         romantic
                                         <br/>
                                         <input
-                                            name="category2"
+                                            name="2"
                                             value="comedy"
                                             type="radio"
                                             onChange={this.handleChange}
@@ -139,7 +158,7 @@ class Content extends Component {
                                         comedy
                                         <br/>
                                         <input
-                                            name="category2"
+                                            name="2"
                                             value="revolutionary"
                                             type="radio"
                                             onChange={this.handleChange}
@@ -152,7 +171,7 @@ class Content extends Component {
                                     <label> Select preferred art:
                                         <br/>
                                         <input
-                                            name="category3"
+                                            name="3"
                                             value="the wonder that is the car"
                                             type="radio"
                                             onChange={this.handleChange}
@@ -160,7 +179,7 @@ class Content extends Component {
                                         The wonder that is the car
                                         <br/>
                                         <input
-                                            name="category3"
+                                            name="3"
                                             value="something something we don't understand but seems important"
                                             type="radio"
                                             onChange={this.handleChange}
@@ -168,7 +187,7 @@ class Content extends Component {
                                         something we don't understand but seems important
                                         <br/>
                                         <input
-                                            name="category3"
+                                            name="3"
                                             value="this we really dont't understand"
                                             type="radio"
                                             onChange={this.handleChange}

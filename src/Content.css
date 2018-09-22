@@ -3,7 +3,6 @@
     grid-template-columns: 30% 30% 20%;
     grid-template-rows:auto;
     grid-template-areas:
-            "tittttle tittttle tittttle"
             "viewContent poeATreeContent sidebarContent"
             "musicElm musicElm musicElm";
     justify-items: start;
@@ -11,14 +10,6 @@
     grid-row-gap: 60px;/*
     border: 2px solid blue;*/
     box-shadow: 0 10px 20px orangered;
-}
-
-.tittttle{
-    grid-area: viewContent;
-    position: relative;
-    color: #333333;
-    box-shadow: 0 10px 20px green;
-    background-color: #fff;
 }
 
 .viewContent{
