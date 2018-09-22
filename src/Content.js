@@ -3,10 +3,8 @@ import $ from 'jquery';
 import './Content.css';
 import PoeATree from './PoeATree';
 import View from './View';
-import Music from './music';
-import jazz from "./lib/music/jazz/jazztrio.mp3"
-import rock from './lib/music/rock/rock.mp3'
-import electronic from './lib/music/electronic/electronic.mp3'
+import Music from './Music';
+
 
 let SELECTION = 'selection.json';
 
