@@ -3,7 +3,7 @@ import $ from 'jquery';
 import './Content.css';
 import PoeATree from './PoeATree';
 import View from './View';
-import Music from './';
+import Music from './music';
 import jazz from "./lib/music/jazz/jazztrio.mp3"
 import rock from './lib/music/rock/rock.mp3'
 import electronic from './lib/music/electronic/electronic.mp3'
@@ -82,8 +82,11 @@ class Content extends Component {
                 <div className="contentWrapper">
                     <h1 className="id">this is the current page: {this.state.tab}</h1>
                     <div className="viewContent">
-                        <View art={this.state.optionArt}/>
-                    </div>
+                    {/*                         
+                    <View art={this.state.optionArt}/>
+                    */}          
+                    <View art="fire.svg" />        
+                  </div>
                     <div className="sidebarContent">
                         <div className="wrapper">
                             <div className="sidebar">
@@ -181,8 +184,7 @@ class Content extends Component {
                     </div>
                 </div>
                 <div className="musicElm">
-                    <audio src={jazz}></audio>
-                    <p>music from bensound.com</p>
+                    <Music music="dance.mp3"/>
                 </div>
             </div>
         );

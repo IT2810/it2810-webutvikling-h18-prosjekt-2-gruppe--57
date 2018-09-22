@@ -5,7 +5,7 @@ import images from "./lib/figures/postmodern/fire.svg";
 class View extends Component {
     constructor(props){
         super(props);
-        this.state = {art: 'fire.svg',content:'',isLoaded:false,error:false};
+        this.state = {art: this.props.art,content:'',isLoaded:false,error:false};
         this.store = this.store.bind(this);
     }
 
