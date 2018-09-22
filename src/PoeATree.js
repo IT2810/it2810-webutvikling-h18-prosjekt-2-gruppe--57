@@ -4,27 +4,44 @@ import './PoeATree.css';
 class PoeATree extends Component {
     constructor(props){
         super(props);
-        console.log(props.text);
-        this.state = {content:[]};
+        this.state = {content:[], error:false};
     }
     
-    componentDidMount() {
+    //Loads selected file from sessionStorage
+    //Caching is done by Content
+    componentWillReceiveProps() {
         let filename = this.props.text;
         let file = sessionStorage.getItem(filename);
-        /*this.setState({
-            content: file.content
-        });*/
+        if(!file){
+            this.setState({
+                error:true
+            });
+        }else{
+            this.setState({
+                content: file.content
+            });
+        }
+      
     }
 
     
     render(){
-        return (
-            <div className="PoeATree">
-                <p>
-                    {this.state.content}
-                </p>
-            </div>
-        );
+        if(this.state.error){
+            return(
+                <div className="PoeATree">
+                <p> An error occured during loading </p>
+                </div>
+            );
+        }else{
+            return (
+                <div className="PoeATree">
+                    <p>
+                        {this.state.content}
+                    </p>
+                </div>
+            );
+        }
+        
     }
 }
 export default PoeATree;
