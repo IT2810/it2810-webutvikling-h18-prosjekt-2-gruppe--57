@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './View.css';
-import images from "./lib/figures/postmodern/fire.svg";
 
 class View extends Component {
     constructor(props){
@@ -15,9 +14,9 @@ class View extends Component {
         let file = sessionStorage.getItem(name);
         console.log(name);
         if(!file){
-            fetch('lib/images/'+name+'.svg')
+            fetch('lib/images/'+name+'_3.svg')
                 .then(response => response.text())
-                .then(cont => this.store(name,cont));
+                .then(cont => this.store(name+"_3",cont));
         }else{
             this.setState({
                 content: file,
