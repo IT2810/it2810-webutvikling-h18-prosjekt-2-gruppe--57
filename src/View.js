@@ -13,7 +13,7 @@ class View extends Component {
         let name = this.state.art;
         let file = sessionStorage.getItem(name);
         if(!file){
-            fetch('/lib/images/'+name)
+            fetch('lib/images/'+name)
                 .then(response => response.text())
                 .then(cont => this.store(name,cont));
         }else{
