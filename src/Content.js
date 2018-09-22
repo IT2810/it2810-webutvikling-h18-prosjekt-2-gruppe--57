@@ -228,7 +228,7 @@ class Content extends Component {
                     </div>
                 </div>
                 <div className="musicElm">
-                    <Music music="dance.mp3"/>
+                    <Music music={this.state.optionMusic}/>
                 </div>
             </div>
         );
