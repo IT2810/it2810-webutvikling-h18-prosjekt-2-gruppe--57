@@ -25,7 +25,7 @@ class PoeATree extends Component {
     }
 
     store(name, cont){
-        sessionStorage.getItem(name,JSON.stringify(cont));
+        sessionStorage.setItem(name,JSON.stringify(cont));
         this.setState({
             content: cont.content,
             isLoaded:true
