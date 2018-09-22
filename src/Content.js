@@ -101,7 +101,7 @@ class Content extends Component{
                 <div className="contentWrapper">
                     <h1 className="id">this is the current page: {this.state.tab}</h1>
                     <div className="viewContent">
-                        <View art={this.state.optionArt} music={this.state.optionMusic} />
+                        <View initialArt={this.state.art} music={this.state.optionMusic} />
                     </div>
                     <div className="sidebarContent">
                         <div className="wrapper">
