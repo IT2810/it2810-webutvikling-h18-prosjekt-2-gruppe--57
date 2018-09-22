@@ -17,6 +17,8 @@ class Content extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.storeSelection = this.storeSelection.bind(this);
         this.setSelection = this.setSelection.bind(this);
+        this.makeFile();
+        /*this.setSelection("0");*/
     }
 
 
@@ -48,6 +50,35 @@ class Content extends Component {
              if (name === "1") this.setState({optionMusic:  target.value});
         else if (name === "2") this.setState({optionPoetry: target.value});
         else if (name === "3") this.setState({optionArt:    target.value});
+    }
+
+    makeFile(){
+        let file = JSON.parse(sessionStorage.getItem(SELECTION));
+        if (!file) {
+            let selection = ({
+                "0": {
+                    "1": 1,
+                    "2": 1,
+                    "3": 1,
+                },
+                "1": {
+                    "1": 1,
+                    "2": 1,
+                    "3": 1,
+                },
+                "2": {
+                    "1": 1,
+                    "2": 1,
+                    "3": 1,
+                },
+                "3": {
+                    "1": 1,
+                    "2": 1,
+                    "3": 1,
+                }
+            });
+            sessionStorage.setItem(SELECTION, JSON.stringify(selection));
+        }
     }
 
     //store selection for current tab
