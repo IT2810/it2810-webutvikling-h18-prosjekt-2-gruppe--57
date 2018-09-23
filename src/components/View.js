@@ -12,7 +12,6 @@ class View extends Component {
     componentWillReceiveProps(newProps) {
         let name = newProps.art;
         let file = sessionStorage.getItem(name);
-        console.log(name);
         if(!file){
             fetch('lib/images/'+name+'_3.svg')
                 .then(response => response.text())

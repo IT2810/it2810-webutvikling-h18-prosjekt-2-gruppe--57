@@ -10,7 +10,6 @@ class PoeATree extends Component {
     componentWillReceiveProps(newProps) {
         let filename = newProps.text;
         let file = sessionStorage.getItem(filename);
-        console.log(filename);
         if (!file || filename === '') {
             fetch('lib/text/' + filename + "_2.json")
                 .then(response => response.json())

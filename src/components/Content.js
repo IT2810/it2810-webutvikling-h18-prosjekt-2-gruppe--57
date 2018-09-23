@@ -24,7 +24,6 @@ class Content extends Component {
         this.setState({tab: nextProps.tabIndex});
         if (this.state.tab !== nextProps.tabIndex) {
             this.setSelection(nextProps.tabIndex);
-            /*console.log("You changed the tab.... Brutal :O ");*/
         }
 
     }
@@ -119,14 +118,10 @@ class Content extends Component {
     //set previous selection for current tab
     setSelection(selectedTab) {
         var self = this;
-        console.log("The state i remember: " + selectedTab);
         let file = JSON.parse(sessionStorage.getItem(SELECTION));
-        /*console.log(file[selectedTab]);*/
         $.each(file[selectedTab], function (value, index) {
             let valueInt = parseInt(value,10) - 1;
             let indexInt = parseInt(index,10) - 1;
-            console.log("value: " + value + " idx: " + index);
-            console.log(document.getElementsByTagName('form'));
             document.getElementsByTagName('form')[valueInt][indexInt].checked = true;
             if (value === "1") {
                 self.setState({optionMusic: "" + selectedTab + "_" + index});
@@ -135,7 +130,6 @@ class Content extends Component {
             } else if (value === "3") {
                 self.setState({optionArt: "" + selectedTab + "_" + index});
             }
-            console.log(self.state)
         })
     };
 

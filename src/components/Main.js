@@ -12,7 +12,6 @@ class Main extends Component{
     }
 
     onTab(id2){
-        /*console.log("Pressed!"+id2);*/
         this.setState({tab:id2});
         let elements = document.getElementsByTagName("a");
         $.each(elements, function(value){
@@ -35,13 +34,13 @@ class Main extends Component{
                             <a className="active" onClick={() => this.onTab(0)}>Fireplace</a>
                         </li>
                         <li>
-                            <a className="" onClick={() => this.onTab(1)}>HighRise</a>
+                            <a className="" onClick={() => this.onTab(1)}>High</a>
                         </li>
                         <li>
                             <a className="" onClick={() => this.onTab(2)}>SoldR</a>
                         </li>
                         <li>
-                            <a className="" onClick={() => this.onTab(3)}>Car</a>
+                            <a className="" onClick={() => this.onTab(3)}>Stone</a>
                         </li>
                     </ul>
                 </div>
