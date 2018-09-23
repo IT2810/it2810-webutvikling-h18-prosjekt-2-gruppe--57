@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import '../styles/animation.css'
 
 class View extends Component {
     constructor(props){
