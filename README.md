@@ -2,11 +2,11 @@
 
 ## Innhold
 Programmet gir brukeren tilgang til et galleri der brukeren selv kan sette opp en eller flere utstillinger.
-Brukeren blir møtt av et navigasjonsfelt i toppen for å velge mellom utstillingene, 
-hver utstilling har tre felt, et for figuren, et for teksten og et for valgene. 
-For hver utstilling kan brukeren velge én av tre kategorier lyd, tekst og figur, valgene blir lagret
+Brukeren blir møtt av et navigasjonsfelt i toppen for å velge mellom utstillingene.
+Hver utstilling har tre felt, et for figuren, et for teksten og et for valgene. 
+For hver utstilling kan brukeren velge én av tre kategorier av lyd, tekst og figur, valget blir lagret
 slik at brukeren kan komme tilbake til samme utstilling. 
-Når en bruker velger en utstilling for første gang får han forhåndsvalgt lyd, tekst, og figur. 
+Når en bruker velger en utstilling for første gang, får han forhåndsvalgt en samling lyd,tekst og figur. 
 Selv om designet er ment å være noen lunde pent, er hovedfokuset at applikasjonen skal være enkel å bruke og 
 dermed at designet skal være selvforklarende.
 
@@ -32,10 +32,7 @@ utgangspunkt i informasjonen de fikk og sjekke om filene ligger lokalt ellers he
 og logikken for å håndtere filene. Et alternativ ville vært å flytte filhåndteringen opp i systemet og dermed få 
 såkalte 'stateless components'. 
 
-## Teknologi
-
-
-### Caching
+## Caching
 Valgene til brukeren blir husket, men for at innholdet skal virke sømløst kan vi ikke hente de fra serveren 
 hver gang brukeren skifter fane. Løsningen er å lagre filene lokalt på brukerens enhet. Dette gjøres ved hjelp av 
 sessionStorage-objektet som er gjort tilgjengelig av nettleseren. Filene blir lagret som et nøkkel-verdi par som
@@ -49,8 +46,8 @@ en subgrid i hovedkomponentet slik at vi enklere kunne flytte tekst-,figur- og v
 skjermstørrelse. Vi benyttet media-queries for å justere layouten til subgriden. 
 
 ### Flex 
-I tillegg til å flytte på komponentene brukte vi Flexbox for å justere på selve innholdet til komponentene for mindre 
-enheter. 
+I tillegg til å flytte på komponentene i CSS-Griden brukte vi Flexbox for å tilpasse innholdet til komponentene 
+til mindre skjermer. 
 
 ## Versjonskontroll
 Som kravene til prosjektet spesifiserte brukte vi Github som versjonskontrollsystem. 
@@ -62,17 +59,17 @@ da det førte til en del merge-konflikter. Hadde vi gjort prosjektet på nytt ha
 en development branch og minst en features branch. 
 
 ## Testing
-For å forsikre en god brukeropplevelse testet vi applikasjonen på ulike nettlesere på både
+For å forsikre en god brukeropplevelse testet vi applikasjonen på ulike nettlesere på 
 Antergos Linux(Firefox developer, Chromium) og Windows 10(Firefox developer, Edge, Chrome). 
 Applikasjonen er videre testet på Huawei P20 Pro(Firefox,Chrome) og Huawei Mate 10 pro(Firefox).
 Under utvikling brukte vi responsive design mode i Firefox developer for å raskt og enkelt fikse 
 bugs som oppstod på mindre skjermer. 
 
 ## Kilder 
-https://reactjs.org/docs/components-and-props.html
-https://reactjs.org/docs/state-and-lifecycle.html
-https://reactjs.org/docs/handling-events.html
-https://reactjs.org/docs/forms.html
-https://www.robinwieruch.de/local-storage-react/
-https://codepen.io/rstrahl/pen/yyEYBx
-https://www.robinwieruch.de/react-fetching-data/
+- https://reactjs.org/docs/components-and-props.html
+- https://reactjs.org/docs/state-and-lifecycle.html
+- https://reactjs.org/docs/handling-events.html
+- https://reactjs.org/docs/forms.html
+- https://www.robinwieruch.de/local-storage-react/
+- https://codepen.io/rstrahl/pen/yyEYBx
+- https://www.robinwieruch.de/react-fetching-data/
