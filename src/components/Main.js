@@ -41,7 +41,7 @@ class Main extends Component{
                             <a className="" onClick={() => this.onTab(2)}>SoldR</a>
                         </li>
                         <li>
-                            <a className="" onClick={() => this.onTab(3)}>Care4Car?</a>
+                            <a className="" onClick={() => this.onTab(3)}>Car</a>
                         </li>
                     </ul>
                 </div>
