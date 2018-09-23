@@ -35,13 +35,13 @@ class Main extends Component{
                             <a className="active" onClick={() => this.onTab(0)}>Fireplace</a>
                         </li>
                         <li>
-                            <a className="" onClick={() => this.onTab(1)}>Savepoint 2</a>
+                            <a className="" onClick={() => this.onTab(1)}>HighRise</a>
                         </li>
                         <li>
-                            <a className="" onClick={() => this.onTab(2)}>Savepoint 3</a>
+                            <a className="" onClick={() => this.onTab(2)}>SoldR</a>
                         </li>
                         <li>
-                            <a className="" onClick={() => this.onTab(3)}>Savepoint 4</a>
+                            <a className="" onClick={() => this.onTab(3)}>Care4Car?</a>
                         </li>
                     </ul>
                 </div>
