@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import '../styles/PoeATree.css';
 
 class PoeATree extends Component {
     constructor(props){

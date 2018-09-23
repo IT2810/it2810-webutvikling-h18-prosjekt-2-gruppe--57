@@ -35,11 +35,11 @@ class Content extends Component {
     }
 
     traverse(firstIndex) {
-        let returnValue = 1;
-        if (firstIndex === 3) {
-            returnValue = 2
+        let returnValue = 3;
+        if (firstIndex === 2) {
+            returnValue = 1
         } else if (firstIndex === 5) {
-            returnValue = 3
+            returnValue = 2
         }
         return returnValue
     }
@@ -123,9 +123,10 @@ class Content extends Component {
         let file = JSON.parse(sessionStorage.getItem(SELECTION));
         /*console.log(file[selectedTab]);*/
         $.each(file[selectedTab], function (value, index) {
-            let valueInt = parseInt(value) - 1;
-            let indexInt = parseInt(index) - 1;
+            let valueInt = parseInt(value,10) - 1;
+            let indexInt = parseInt(index,10) - 1;
             console.log("value: " + value + " idx: " + index);
+            console.log(document.getElementsByTagName('form'));
             document.getElementsByTagName('form')[valueInt][indexInt].checked = true;
             if (value === "1") {
                 self.setState({optionMusic: "" + selectedTab + "_" + index});
@@ -149,90 +150,96 @@ class Content extends Component {
                         <div className="wrapper">
                             <div className="sidebar">
                                 <form>
-                                    <label> Select preferred music:
-                                        <br/>
-                                        <input
-                                            name="1"
-                                            value="1"
-                                            type="radio"
-                                            onChange={this.handleChange}
-                                        />
-                                        smooth jazz
-                                        <br/>
-                                        <input
-                                            name="1"
-                                            value="2"
-                                            type="radio"
-                                            onChange={this.handleChange}
-                                        />
-                                        electronica
-                                        <br/>
-                                        <input
-                                            name="1"
-                                            value="3"
-                                            type="radio"
-                                            onChange={this.handleChange}
-                                        />
-                                        rock
-                                    </label>
+                                    <label> Preferred music: </label>
+                                    <br/>
+                                    <input
+                                        id="c1_s1"
+                                        name="1"
+                                        value="1"
+                                        type="radio"
+                                        onChange={this.handleChange}
+                                    />
+                                    <label htmlFor="c1_s1">smooth jazz</label>
+                                    <br />
+                                    <input
+                                        id="c1_s2"
+                                        name="1"
+                                        value="2"
+                                        type="radio"
+                                        onChange={this.handleChange}
+                                    />
+                                    <label htmlFor="c1_s2">electronica</label>
+                                    <br />    
+                                    <input
+                                        id="c1_s3"
+                                        name="1"
+                                        value="3"
+                                        type="radio"
+                                        onChange={this.handleChange}
+                                    />
+                                    <label htmlFor="c1_s3">rock</label>
                                 </form>
                                 <br/>
                                 <form>
-                                    <label> Select preferred poetry:
-                                        <br/>
-                                        <input
-                                            name="2"
-                                            value="1"
-                                            type="radio"
-                                            onChange={this.handleChange}
-                                        />
-                                        romantic
-                                        <br/>
-                                        <input
-                                            name="2"
-                                            value="2"
-                                            type="radio"
-                                            onChange={this.handleChange}
-                                        />
-                                        comedy
-                                        <br/>
-                                        <input
-                                            name="2"
-                                            value="3"
-                                            type="radio"
-                                            onChange={this.handleChange}
-                                        />
-                                        revolutionary
-                                    </label>
+                                    <label> Preferred poetry: </label>
+                                    <br/>
+                                    <input
+                                        id="c2_s1"
+                                        name="2"
+                                        value="1"
+                                        type="radio"
+                                        onChange={this.handleChange}
+                                    />
+                                    <label htmlFor="c2_s1">romantic</label>
+                                    <br/>
+                                    <input
+                                        id="c2_s2"
+                                        name="2"
+                                        value="2"
+                                        type="radio"
+                                        onChange={this.handleChange}
+                                    />
+                                    <label htmlFor="c2_s2">comedy</label>
+                                    <br/>
+                                    <input
+                                        id="c2_s3"
+                                        name="2"
+                                        value="3"
+                                        type="radio"
+                                        onChange={this.handleChange}
+                                    />
+                                    <label htmlFor="c2_s3">revolutionary</label>
                                 </form>
                                 <br/>
                                 <form>
-                                    <label> Select preferred art:
-                                        <br/>
-                                        <input
-                                            name="3"
-                                            value="1"
-                                            type="radio"
-                                            onChange={this.handleChange}
-                                        />
-                                        The wonder that is the car
-                                        <br/>
-                                        <input
-                                            name="3"
-                                            value="2"
-                                            type="radio"
-                                            onChange={this.handleChange}
-                                        />
-                                        something we don't understand but seems important
-                                        <br/>
-                                        <input
-                                            name="3"
-                                            value="3"
-                                            type="radio"
-                                            onChange={this.handleChange}
-                                        />
-                                        this we really don't understand
-                                    </label>
+                                    <label> Preferred art:</label>
+                                    <br/>
+                                    <input
+                                        id="c3_s1"
+                                        name="3"
+                                        value="1"
+                                        type="radio"
+                                        onChange={this.handleChange}
+                                    />
+                                    <label htmlFor="c3_s1">hei</label>
+                                    <br/>
+                                    <input
+                                        id="c3_s2"
+                                        name="3"
+                                        value="2"
+                                        type="radio"
+                                        onChange={this.handleChange}
+                                    />
+                                    <label htmlFor="c3_s2">hallo</label>
+                                    <br/>
+                                    <input
+                                        id="c3_s3"
+                                        name="3"
+                                        value="3"
+                                        type="radio"
+                                        onChange={this.handleChange}
+                                    />
+                                    <label htmlFor="c3_s3">hade</label>
                                 </form>
                             </div>
                         </div>

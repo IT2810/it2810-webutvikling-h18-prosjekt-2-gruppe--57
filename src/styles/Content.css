@@ -1,3 +1,5 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css);
+
 .contentWrapper{
     display:grid;
     grid-template-columns: 30% 30% 20%;
@@ -9,7 +11,6 @@
     grid-column-gap: 40px;
     grid-row-gap: 60px;/*
     border: 2px solid blue;*/
-    box-shadow: 0 10px 20px orangered;
 }
 
 .viewContent{
@@ -48,4 +49,35 @@
 .musicElm{
     grid-area: musicElm;
     position: relative;
+}
+
+input[type=radio]{
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+input[type=radio] ~ label:before {
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f1db";
+    letter-spacing: 10px;
+    font-size: 1.2em;
+    color: #535353;
+    width: 1.2em;
+}
+
+input[type="radio"]:checked+label { 
+    color: #004c97; 
+    content:"\f00c";
+    font-size: 1.2em;
+}
+
+input[type="radio"]:focus{
+    color:#004c97;
 }
