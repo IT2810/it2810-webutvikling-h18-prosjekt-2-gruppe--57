@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './View.css';
+import '../styles/View.css';
 
 class View extends Component {
     constructor(props){

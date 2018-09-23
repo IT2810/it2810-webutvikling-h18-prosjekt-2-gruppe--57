@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
-import './Content.css';
+import '../styles/Content.css';
 import PoeATree from './PoeATree';
 import View from './View';
 import Music from './Music';

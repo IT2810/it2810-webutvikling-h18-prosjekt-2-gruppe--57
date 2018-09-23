@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import './Music.css'
+import '../styles/Music.css'
 
 class Music extends Component {
     constructor(props){

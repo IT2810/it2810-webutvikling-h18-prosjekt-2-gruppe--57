@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './Main.css';
+import '../styles/Main.css';
 import $ from 'jquery';
-import Content from './Content.js';
+import Content from './Content';
 
 class Main extends Component{
     constructor(){
