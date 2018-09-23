@@ -32,7 +32,7 @@ class Main extends Component{
                 <div className="nav">
                     <ul>
                         <li>
-                            <a className="active" onClick={() => this.onTab(0)}>Savepoint 1</a>
+                            <a className="active" onClick={() => this.onTab(0)}>Fireplace</a>
                         </li>
                         <li>
                             <a className="" onClick={() => this.onTab(1)}>Savepoint 2</a>
