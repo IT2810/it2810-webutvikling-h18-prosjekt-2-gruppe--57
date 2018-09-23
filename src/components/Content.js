@@ -221,7 +221,7 @@ class Content extends Component {
                                         type="radio"
                                         onChange={this.handleChange}
                                     />
-                                    <label htmlFor="c3_s1">hei</label>
+                                    <label htmlFor="c3_s1">step1</label>
                                     <br/>
                                     <input
                                         id="c3_s2"
@@ -230,7 +230,7 @@ class Content extends Component {
                                         type="radio"
                                         onChange={this.handleChange}
                                     />
-                                    <label htmlFor="c3_s2">hallo</label>
+                                    <label htmlFor="c3_s2">step2</label>
                                     <br/>
                                     <input
                                         id="c3_s3"
@@ -239,7 +239,7 @@ class Content extends Component {
                                         type="radio"
                                         onChange={this.handleChange}
                                     />
-                                    <label htmlFor="c3_s3">hade</label>
+                                    <label htmlFor="c3_s3">step3</label>
                                 </form>
                             </div>
                         </div>
