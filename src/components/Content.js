@@ -29,6 +29,11 @@ class Content extends Component {
 
     }
 
+    componentDidMount(){
+        //setts the tab on load to the first one.
+        this.setSelection("0");
+    }
+
     traverse(firstIndex) {
         let returnValue = 1;
         if (firstIndex === 3) {
@@ -123,11 +128,11 @@ class Content extends Component {
             console.log("value: " + value + " idx: " + index);
             document.getElementsByTagName('form')[valueInt][indexInt].checked = true;
             if (value === "1") {
-                self.setState({optionMusic: "" + self.state.tab + "_" + index});
+                self.setState({optionMusic: "" + selectedTab + "_" + index});
             } else if (value === "2") {
-                self.setState({optionPoetry: "" + self.state.tab + "_" + index});
+                self.setState({optionPoetry: "" + selectedTab + "_" + index});
             } else if (value === "3") {
-                self.setState({optionArt: "" + self.state.tab + "_" + index});
+                self.setState({optionArt: "" + selectedTab + "_" + index});
             }
             console.log(self.state)
         })
