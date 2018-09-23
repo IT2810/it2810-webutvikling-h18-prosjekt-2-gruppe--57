@@ -1,0 +1,97 @@
+#flame1, flame3  path {
+    -webkit-animation: float 5s infinite;
+    -moz-animation: float 5s infinite;
+    -o-animation: float 5s infinite;
+    animation: float 5s infinite;
+    animation-timing-function: cubic-bezier(.58, .23, .61, .84)
+}
+
+
+#flame2, flame3  path {
+    -webkit-animation: shake 7s infinite;
+    -moz-animation: shake 7s infinite;
+    -o-animation: shake 7s infinite;
+    animation: shake 7s infinite;
+    animation-timing-function: cubic-bezier(.58, .23, .61, .84)
+}
+
+#flame3, flame2 path {
+    -webkit-animation: shake 13s infinite;
+    -moz-animation: shake 13s infinite;
+    -o-animation: shake 13s infinite;
+    animation: shake 13s infinite;
+    animation-timing-function: cubic-bezier(.58, .23, .61, .84)
+}
+
+#flame4, flame2 path {
+    -webkit-animation: shake 15s infinite;
+    -moz-animation: shake 15s infinite;
+    -o-animation: shake 15s infinite;
+    animation: shake 15s infinite;
+    animation-timing-function: cubic-bezier(.58, .23, .61, .84)
+}
+#flame5, flame2 path {
+    -webkit-animation: shake 12s infinite;
+    -moz-animation: shake 12s infinite;
+    -o-animation: shake 12s infinite;
+    animation: shake 12s infinite;
+    animation-timing-function: cubic-bezier(.58, .23, .61, .84)
+}
+#flame6, f path {
+    -webkit-animation: shake 9s infinite;
+    -moz-animation: shake 9s infinite;
+    -o-animation: shake 9s infinite;
+    animation: shake 9s infinite;
+    animation-timing-function: cubic-bezier(.58, .23, .61, .84)
+}
+
+#smoke, f path {
+    -webkit-animation: hoverAway 9s infinite;
+    -moz-animation: hoverAway 9s infinite;
+    -o-animation: hoverAway 9s infinite;
+    animation: hoverAway 9s infinite;
+    animation-timing-function: cubic-bezier(.58, .23, .61, .84)
+}
+@keyframes hoverAway {
+    0% {
+        opacity: 0;
+    transform: translateY(30px);
+}
+    50% {
+        opacity: 1;
+}
+    100% {
+        opacity: 0;
+    transform: translateY(-10px);
+}
+}
+
+@keyframes float {
+    50% {
+        transform: translateY(10px);
+}
+    75% {
+        animation-timing-function: cubic-bezier(0.33, 0.66, 0.66, 1);
+}
+    100% {
+        transform: translateY(0);
+}
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 2px, 0) rotate(1deg);
+}
+
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+}
+
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+}
+
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+}
+}
